@@ -1,0 +1,92 @@
+            - name: docker-ros
+  # You may pin to the exact commit or the version.
+  # uses: ika-rwth-aachen/docker-ros@4b5d4211c0f849516f490218dbdcfd270c69dbaf
+  uses: ika-rwth-aachen/docker-ros@v1.8.1
+  with:
+    # Relative filepath to file containing additional apt deb packages to install
+    additional-debs-file: # optional, default is docker/additional-debs.txt
+    # Relative path to directory containing additional files to copy into image
+    additional-files-dir: # optional, default is docker/additional-files
+    # Relative filepath to file containing additional pip packages to install
+    additional-pip-file: # optional, default is docker/additional-pip-requirements.txt
+    # Relative filepath to script containing commands to run after dependency installation
+    after-dependency-installation-script: # optional, default is docker/custom.sh
+    # Base image name:tag
+    base-image: 
+    # Relative filepath to script containing commands to run before dependency identification
+    before-dependency-identification-script: # optional, default is docker/before_dependency_identification.sh
+    # Relative filepath to script containing commands to run before dependency installation
+    before-dependency-installation-script: # optional, default is docker/before_dependency_installation.sh
+    # Relative filepath to file containing blacklisted packages to remove from workspace
+    blacklisted-packages-file: # optional, default is docker/blacklisted-packages.txt
+    # Build context of Docker build process
+    build-context: # optional, default is ${{ github.workspace }}
+    # Launch command of run image (required if target=run)
+    command: # optional
+    # CMake arguments to pass to `colcon build`
+    cmake-args: # optional, default is -DCMAKE_BUILD_TYPE=Release
+    # Image name of dev image
+    dev-image-name: # optional, default is ghcr.io/${{ github.repository }}
+    # Image tag of dev image
+    dev-image-tag: # optional
+    # Disable automatic installation of `ros-$ROS_DISTRO-ros-core` package, e.g., if ROS is already installed in `base-image` and package is not available for the OS
+    disable-ros-installation: # optional
+    # Enable checkout action to (re-)download your repository prior to running the pipeline
+    enable-checkout: # optional, default is true
+    # Enable Git LFS support for the checkout action
+    enable-checkout-lfs: # optional, default is true
+    # Enable submodules for the checkout action (false|true|recursive)
+    enable-checkout-submodules: # optional, default is recursive
+    # Enable industrial_ci
+    enable-industrial-ci: # optional
+    # Push images with tag `latest`/`latest-dev` in addition to the configured image names
+    enable-push-as-latest: # optional
+    # Enable recursive discovery of files named `additional-debs-file`
+    enable-recursive-additional-debs: # optional
+    # Enable recursive discovery of files named `additional-pip-file`
+    enable-recursive-additional-pip: # optional
+    # Enable recursive discovery of files named `after-dependency-installation-script`
+    enable-recursive-after-dependency-installation-script: # optional
+    # Enable recursive discovery of files named `before-dependency-installation-script`
+    enable-recursive-before-dependency-installation-script: # optional
+    # Enable recursive discovery of files named `blacklisted-packages-file`
+    enable-recursive-blacklisted-packages: # optional
+    # Enable push of single arch images with [-amd64|-arm64] postfix
+    enable-singlearch-push: # optional
+    # Enable an extra slimmed run image via slim (only if run stage is targeted)
+    enable-slim: # optional, default is true
+    # Password for cloning private Git repositories via HTTPS
+    git-https-password: # optional, default is ${{ github.token }}
+    # Server URL (without protocol) for cloning private Git repositories via HTTPS
+    git-https-server: # optional, default is github.com
+    # Username for cloning private Git repositories via HTTPS
+    git-https-user: # optional, default is ${{ github.actor }}
+    # Known SSH host keys for cloning private Git repositories via SSH (may be obtained using `ssh-keyscan`)
+    git-ssh-known-host-keys: # optional
+    # SSH private key for cloning private Git repositories via SSH
+    git-ssh-private-key: # optional
+    # Image name of run image
+    image-name: # optional, default is ghcr.io/${{ github.repository }}
+    # Image tag of run image
+    image-tag: # optional, default is latest
+    # Target platform architecture (comma-separated list) [amd64|arm64|...]
+    platform: # optional
+    # Docker registry to push images to
+    registry: # optional, default is ghcr.io
+    # Docker registry password
+    registry-password: # optional, default is ${{ github.token }}
+    # Docker registry username
+    registry-user: # optional, default is ${{ github.actor }}
+    # ROS Distro (required if ROS is not installed in `base-image`)
+    ros-distro: # optional
+    # RMW implementation to use (only for ROS 2)
+    rmw-implementation: # optional, default is rmw_fastrtps_cpp
+    # Arguments to `slim build` (except for `--target` and `--tag`)
+    slim-build-args: # optional, default is --sensor-ipc-mode proxy --continue-after=10 --show-clogs --http-probe=false --include-path /opt/ros --include-path /docker-ros/ws/install
+    # Image name of slim run image
+    slim-image-name: # optional, default is ghcr.io/${{ github.repository }}
+    # Image tag of slim run image
+    slim-image-tag: # optional
+    # Target stage of Dockerfile (comma-separated list) [dev|run]
+    target: # optional, default is run
+          
